@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emergeRate">
+        <item>未选择</item>
+        <item>良</item>
+        <item>中</item>
+        <item>不良</item>
+    </string-array>
+    <string-array name="flowerColor">
+        <item>未选择</item>
+        <item>白花</item>
+        <item>紫花</item>
+    </string-array>
+    <string-array name="leafShape">
+        <item>未选择</item>
+        <item>尖</item>
+        <item>圆</item>
+    </string-array>
+    <string-array name="hairColor">
+        <item>未选择</item>
+        <item>灰色</item>
+        <item>棕色</item>
+    </string-array>
+    <string-array name="hullsColor">
+        <item>未选择</item>
+        <item>褐色</item>
+        <item>黄褐色</item>
+        <item>黑色</item>
+    </string-array>
+    <string-array name="podHabit">
+        <item>未选择</item>
+        <item>无限</item>
+        <item>有限</item>
+        <item>亚有限</item>
+    </string-array>
+    <string-array name="level5">
+        <item>未选择</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="level4">
+        <item>未选择</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="level6">
+        <item>未选择</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+</resources>
