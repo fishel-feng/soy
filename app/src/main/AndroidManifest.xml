@@ -14,18 +14,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.fx.soy.activity.ShowActivity">
+        <activity
+            android:name="com.fx.soy.activity.ShowActivity"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.fx.soy.activity.EditActivity">
+        <activity
+            android:name="com.fx.soy.activity.EditActivity"
+            android:windowSoftInputMode="stateHidden">
         </activity>
-        <activity android:name="com.fx.soy.activity.AddActivity">
+        <activity
+            android:name="com.fx.soy.activity.AddActivity"
+            android:windowSoftInputMode="stateHidden">
         </activity>
-        <activity android:name="com.fx.soy.activity.DefaultValueActivity">
+        <activity
+            android:name="com.fx.soy.activity.DefaultValueActivity"
+            android:windowSoftInputMode="stateHidden">
         </activity>
     </application>
 

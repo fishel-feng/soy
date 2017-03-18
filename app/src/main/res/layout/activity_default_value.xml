@@ -41,7 +41,7 @@
                 android:id="@+id/btn_seed_date_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:text="未选择"/>
 
         </LinearLayout>
@@ -63,7 +63,7 @@
                 android:id="@+id/btn_emerge_date_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:text="未选择"/>
 
         </LinearLayout>
@@ -85,7 +85,7 @@
                 android:id="@+id/sp_emerge_rate_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:entries="@array/emergeRate"/>
         </LinearLayout>
 
@@ -107,7 +107,7 @@
                 android:id="@+id/sp_flower_color_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:entries="@array/flowerColor"/>
         </LinearLayout>
 
@@ -128,7 +128,7 @@
                 android:id="@+id/sp_leaf_shape_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:entries="@array/leafShape"/>
         </LinearLayout>
 
@@ -149,7 +149,7 @@
                 android:id="@+id/sp_hair_color_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:entries="@array/hairColor"/>
         </LinearLayout>
 
@@ -170,7 +170,7 @@
                 android:id="@+id/sp_hulls_color_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:entries="@array/hullsColor"/>
         </LinearLayout>
 
@@ -191,7 +191,7 @@
                 android:id="@+id/sp_pod_habit_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:entries="@array/podHabit"/>
         </LinearLayout>
 
@@ -212,7 +212,8 @@
                 android:id="@+id/et_ridge_distance_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"/>
+                android:layout_weight="2"
+                android:inputType="number|numberDecimal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -232,7 +233,7 @@
                 android:id="@+id/et_collect_area_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"/>
+                android:layout_weight="2"/>
         </LinearLayout>
 
         <LinearLayout
@@ -252,7 +253,7 @@
                 android:id="@+id/et_collect_name_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"/>
+                android:layout_weight="2"/>
         </LinearLayout>
 
         <LinearLayout
@@ -272,7 +273,7 @@
                 android:id="@+id/btn_collect_date_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:text="未选择"/>
         </LinearLayout>
 
@@ -293,7 +294,7 @@
                 android:id="@+id/btn_collect_time_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:text="未选择"/>
         </LinearLayout>
 
