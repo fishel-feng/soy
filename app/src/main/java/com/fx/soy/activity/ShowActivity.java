@@ -28,6 +28,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 public class ShowActivity extends AppCompatActivity {
 
     private TextView mAdd;
+    private TextView mAddText;
 
     private List<Soy> mSoyList = new ArrayList<>();
 
@@ -50,6 +51,13 @@ public class ShowActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         mAdd = (TextView) findViewById(R.id.tv_add);
         mAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(ShowActivity.this, AddActivity.class), 1);
+            }
+        });
+        mAddText= (TextView) findViewById(R.id.tv_add_tv);
+        mAddText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(ShowActivity.this, AddActivity.class), 1);

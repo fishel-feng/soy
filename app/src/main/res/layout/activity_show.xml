@@ -22,10 +22,12 @@
             android:clickable="true"/>
 
         <TextView
+            android:id="@+id/tv_add_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  添加新纪录"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:clickable="true"/>
 
     </android.support.v7.widget.Toolbar>
 
