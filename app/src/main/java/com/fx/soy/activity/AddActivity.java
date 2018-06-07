@@ -24,6 +24,9 @@ import java.util.ArrayList;
 
 public class AddActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText mGeneration;
+    private EditText mLine;
+    private EditText mName;
     private Button mSeedDate;
     private Button mEmergeDate;
     private Spinner mEmergeRate;
@@ -70,6 +73,9 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     private void initView() {
+        mGeneration = (EditText) findViewById(R.id.et_generation);
+        mLine = (EditText) findViewById(R.id.et_line);
+        mName = (EditText) findViewById(R.id.et_name);
         mSeedDate = (Button) findViewById(R.id.btn_seed_date);
         mEmergeDate = (Button) findViewById(R.id.btn_emerge_date);
         mEmergeRate = (Spinner) findViewById(R.id.sp_emerge_rate);
@@ -264,6 +270,9 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.btn_submit:
                 Soy mSoy = new Soy();
+                mSoy.setGeneration(String.valueOf(mGeneration.getText()));
+                mSoy.setLine(String.valueOf(mLine.getText()));
+                mSoy.setName(String.valueOf(mName.getText()));
                 mSoy.setSeedDate(String.valueOf(mSeedDate.getText()));
                 mSoy.setEmergeDate(String.valueOf(mEmergeDate.getText()));
                 mSoy.setEmergeRate(String.valueOf(mEmergeRate.getSelectedItem()));
@@ -303,6 +312,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.btn_default:
                 startActivityForResult(new Intent(this, DefaultValueActivity.class), 0);
+                break;
+            default:
                 break;
         }
     }
