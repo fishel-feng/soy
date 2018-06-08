@@ -467,11 +467,24 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 soyForUpdate.setCollectName(String.valueOf(mCollectName.getText()));
                 soyForUpdate.setCollectDate(String.valueOf(mCollectDate.getText()));
                 soyForUpdate.setCollectTime(String.valueOf(mCollectTime.getText()));
+                if ("".equals(soyForUpdate.getGeneration().trim())) {
+                    Toast.makeText(this, "代不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(soyForUpdate.getLine().trim())) {
+                    Toast.makeText(this, "行不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(soyForUpdate.getName().trim())) {
+                    Toast.makeText(this, "资源号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if ("".equals(soyForUpdate.getCollectName().trim()) || soyForUpdate.getCollectName() == null || "未选择".equals(soyForUpdate.getCollectDate()) || "未选择".equals(soyForUpdate.getCollectTime())) {
                     Toast.makeText(this, "采集人姓名和采集日期时间不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 DBHelper.update(soyForUpdate, mSoy.getId());
+                soyForUpdate.setId(mSoy.getId());
                 Toast.makeText(this, "更新数据成功", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.putExtra("newSoy", soyForUpdate);

@@ -308,6 +308,18 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 mSoy.setCollectName(String.valueOf(mCollectName.getText()));
                 mSoy.setCollectDate(String.valueOf(mCollectDate.getText()));
                 mSoy.setCollectTime(String.valueOf(mCollectTime.getText()));
+                if ("".equals(mSoy.getGeneration().trim())) {
+                    Toast.makeText(this, "代不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(mSoy.getLine().trim())) {
+                    Toast.makeText(this, "行不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(mSoy.getName().trim())) {
+                    Toast.makeText(this, "资源号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if ("".equals(mSoy.getCollectName().trim()) || mSoy.getCollectName() == null || "未选择".equals(mSoy.getCollectDate()) || "未选择".equals(mSoy.getCollectTime())) {
                     Toast.makeText(this, "采集人姓名和采集日期时间不能为空", Toast.LENGTH_SHORT).show();
                     return;

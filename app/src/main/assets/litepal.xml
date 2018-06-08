@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <litepal>
     <dbname value="soy"></dbname>
-    <version value="7"></version>
+    <version value="8"></version>
     <list>
         <mapping class="com.fx.soy.entity.Soy"></mapping>
     </list>
