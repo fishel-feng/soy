@@ -110,6 +110,13 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     private void initData() {
+        if (mHolder.mGeneration != null) {
+            mGeneration.setText(mHolder.mGeneration.trim());
+        } else {
+            mGeneration.setText("");
+        }
+        mLine.setText("");
+        mName.setText("");
         if (mHolder.mSeedDate != null) {
             mSeedDate.setText(mHolder.mSeedDate);
         } else {
@@ -141,29 +148,29 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         mViruses.setSelection(0);
         mNematodeDisease.setSelection(0);
         mAreaLength.setText("");
-        if (mHolder.mRidgeDistance!=null){
+        if (mHolder.mRidgeDistance != null) {
             mRidgeDistance.setText(mHolder.mRidgeDistance.trim());
-        }else {
+        } else {
             mRidgeDistance.setText("");
         }
-        if (mHolder.mCollectArea!=null){
+        if (mHolder.mCollectArea != null) {
             mCollectArea.setText(mHolder.mCollectArea.trim());
-        }else {
+        } else {
             mCollectArea.setText("");
         }
-        if (mHolder.mCollectName!=null){
+        if (mHolder.mCollectName != null) {
             mCollectName.setText(mHolder.mCollectName.trim());
-        }else {
+        } else {
             mCollectName.setText("");
         }
-        if (mHolder.mCollectDate!=null){
+        if (mHolder.mCollectDate != null) {
             mCollectDate.setText(mHolder.mCollectDate);
-        }else {
+        } else {
             mCollectDate.setText("未选择");
         }
-        if (mHolder.mCollectTime!=null){
+        if (mHolder.mCollectTime != null) {
             mCollectTime.setText(mHolder.mCollectTime);
-        }else {
+        } else {
             mCollectTime.setText("未选择");
         }
     }
@@ -322,6 +329,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
+                mHolder.mGeneration = data.getStringExtra("generation");
                 mHolder.mSeedDate = data.getStringExtra("seedDate");
                 mHolder.mEmergeDate = data.getStringExtra("emergeDate");
                 mHolder.mEmergeRate = data.getIntExtra("emergeRate", 0);
@@ -335,6 +343,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 mHolder.mCollectName = data.getStringExtra("collectName");
                 mHolder.mCollectDate = data.getStringExtra("collectDate");
                 mHolder.mCollectTime = data.getStringExtra("collectTime");
+                mGeneration.setText(mHolder.mGeneration);
                 mSeedDate.setText(mHolder.mSeedDate);
                 mEmergeDate.setText(mHolder.mEmergeDate);
                 mEmergeRate.setSelection(mHolder.mEmergeRate);
@@ -365,6 +374,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     class DefaultHolder {
+        String mGeneration;
         String mSeedDate;
         String mEmergeDate;
         int mEmergeRate;

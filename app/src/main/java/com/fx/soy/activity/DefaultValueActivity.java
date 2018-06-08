@@ -17,6 +17,7 @@ import com.fx.soy.R;
 
 public class DefaultValueActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText mGeneration;
     private Button mSeedDate;
     private Button mEmergeDate;
     private Spinner mEmergeRate;
@@ -43,6 +44,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initView() {
+        mGeneration = (EditText) findViewById(R.id.et_generation_default);
         mSeedDate = (Button) findViewById(R.id.btn_seed_date_default);
         mEmergeDate = (Button) findViewById(R.id.btn_emerge_date_default);
         mEmergeRate = (Spinner) findViewById(R.id.sp_emerge_rate_default);
@@ -61,6 +63,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initData() {
+        mGeneration.setText("");
         mSeedDate.setText("未选择");
         mEmergeDate.setText("未选择");
         mEmergeRate.setSelection(0);
@@ -158,6 +161,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
                 builder4.create().show();
                 break;
             case R.id.btn_submit_default:
+                String generation = String.valueOf(mGeneration.getText());
                 String seedDate= String.valueOf(mSeedDate.getText());
                 String emergeDate= String.valueOf(mEmergeDate.getText());
                 int emergeRate=mEmergeRate.getSelectedItemPosition();
@@ -172,6 +176,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
                 String collectDate= String.valueOf(mCollectDate.getText());
                 String collectTime= (String) mCollectTime.getText();
                 Intent intent=new Intent();
+                intent.putExtra("generation", generation);
                 intent.putExtra("seedDate",seedDate);
                 intent.putExtra("emergeDate",emergeDate);
                 intent.putExtra("emergeRate",emergeRate);
@@ -187,6 +192,8 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
                 intent.putExtra("collectTime",collectTime);
                 setResult(RESULT_OK, intent);
                 finish();
+                break;
+            default:
                 break;
         }
     }

@@ -21,6 +21,9 @@ import com.fx.soy.helper.DBHelper;
 
 public class EditActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText mGeneration;
+    private EditText mLine;
+    private EditText mName;
     private Button mSeedDate;
     private Button mEmergeDate;
     private Button mEmergeRate;
@@ -66,6 +69,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
+        mGeneration = (EditText) findViewById(R.id.et_generation_edit);
+        mLine = (EditText) findViewById(R.id.et_line_edit);
+        mName = (EditText) findViewById(R.id.et_name_edit);
         mSeedDate = (Button) findViewById(R.id.btn_seed_date_edit);
         mEmergeDate = (Button) findViewById(R.id.btn_emerge_date_edit);
         mEmergeRate = (Button) findViewById(R.id.btn_emerge_rate_edit);
@@ -101,6 +107,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     private void initData() {
         Intent intent = getIntent();
         mSoy = intent.getParcelableExtra("mSoy");
+        mGeneration.setText(mSoy.getGeneration());
+        mLine.setText(mSoy.getLine());
+        mName.setText(mSoy.getName());
         mSeedDate.setText(mSoy.getSeedDate());
         mEmergeDate.setText(mSoy.getEmergeDate());
         mEmergeRate.setText(mSoy.getEmergeRate());
@@ -427,6 +436,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_submit_edit:
                 soyForUpdate = new Soy();
+                soyForUpdate.setGeneration(String.valueOf(mGeneration.getText()));
+                soyForUpdate.setLine(String.valueOf(mLine.getText()));
+                soyForUpdate.setName(String.valueOf(mName.getText()));
                 soyForUpdate.setSeedDate(String.valueOf(mSeedDate.getText()));
                 soyForUpdate.setEmergeDate(String.valueOf(mEmergeDate.getText()));
                 soyForUpdate.setEmergeRate(String.valueOf(mEmergeRate.getText()));
@@ -465,6 +477,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("newSoy", soyForUpdate);
                 setResult(RESULT_OK, intent);
                 finish();
+                break;
+            default:
                 break;
         }
     }
