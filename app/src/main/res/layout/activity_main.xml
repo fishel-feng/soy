@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,17 +19,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="添加新记录"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </android.support.v7.widget.Toolbar>
 
         <Button
             android:id="@+id/btn_default"
-            android:text="点击设置默认属性值"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginStart="50dp"/>
+            android:layout_marginStart="50dp"
+            android:text="点击设置默认属性值" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,14 +42,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="代"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_generation"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -63,14 +63,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="行"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_line"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,14 +84,13 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="资源号"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:layout_weight="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -105,14 +104,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="播种期"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_seed_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
 
         </LinearLayout>
 
@@ -127,14 +126,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="出苗期"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_emerge_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
 
         </LinearLayout>
 
@@ -149,14 +148,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="出苗率"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_emerge_rate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/emergeRate"/>
+                android:entries="@array/emergeRate" />
         </LinearLayout>
 
         <LinearLayout
@@ -171,14 +170,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="花色"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_flower_color"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/flowerColor"/>
+                android:entries="@array/flowerColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -192,14 +191,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="叶形"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_leaf_shape"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/leafShape"/>
+                android:entries="@array/leafShape" />
         </LinearLayout>
 
         <LinearLayout
@@ -213,14 +212,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="茸毛色"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_hair_color"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/hairColor"/>
+                android:entries="@array/hairColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -234,14 +233,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="夹皮色"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_hulls_color"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/hullsColor"/>
+                android:entries="@array/hullsColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -255,14 +254,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="结荚习性"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_pod_habit"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/podHabit"/>
+                android:entries="@array/podHabit" />
         </LinearLayout>
 
         <LinearLayout
@@ -276,14 +275,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="株高(cm)"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_plant_height"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -297,14 +296,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="底荚高(cm)"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_pod_height"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -318,14 +317,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="主茎节数"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_stem_number"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -339,14 +338,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="有效分枝"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_effective_branch"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -360,14 +359,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="单株有效荚数"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_effective_pod_number_of_one"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -381,14 +380,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="倒伏日期"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_lodging_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
         </LinearLayout>
 
         <LinearLayout
@@ -402,14 +401,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="倒伏程度"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_lodging_degree"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/level5"/>
+                android:entries="@array/level5" />
         </LinearLayout>
 
         <LinearLayout
@@ -423,14 +422,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="倒伏率(%)"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_lodging_rate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -444,14 +443,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="细菌性斑点病"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_bacterial_spot_diseases"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/level4"/>
+                android:entries="@array/level4" />
         </LinearLayout>
 
         <LinearLayout
@@ -465,14 +464,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="霜霉病"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_downy_mildew"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/level4"/>
+                android:entries="@array/level4" />
         </LinearLayout>
 
         <LinearLayout
@@ -486,14 +485,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="灰斑病"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_gray_leaf_spot"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/level4"/>
+                android:entries="@array/level4" />
         </LinearLayout>
 
         <LinearLayout
@@ -507,14 +506,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="菌核病"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_sclerotinia_sclerotiorum"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/level5"/>
+                android:entries="@array/level5" />
         </LinearLayout>
 
         <LinearLayout
@@ -528,14 +527,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="病毒"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_viruses"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/level6"/>
+                android:entries="@array/level6" />
         </LinearLayout>
 
         <LinearLayout
@@ -549,14 +548,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="线虫病"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_nematode_disease"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/level6"/>
+                android:entries="@array/level6" />
         </LinearLayout>
 
         <LinearLayout
@@ -570,14 +569,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="缺区长度(m)"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_area_length"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -591,14 +590,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="垄距(m)"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_ridge_distance"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -612,13 +611,13 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集地块"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_collect_area"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"/>
+                android:layout_weight="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -632,13 +631,13 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集人姓名"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_collect_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"/>
+                android:layout_weight="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -652,14 +651,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集日期"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_collect_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
         </LinearLayout>
 
         <LinearLayout
@@ -673,23 +672,30 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集时间"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_collect_time"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_photo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:text="点击拍照" />
+
+        <Button
             android:id="@+id/btn_submit"
-            android:text="点击提交此次采集"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginStart="50dp"/>
+            android:layout_marginStart="50dp"
+            android:text="点击提交此次采集" />
     </LinearLayout>
 
 </ScrollView>

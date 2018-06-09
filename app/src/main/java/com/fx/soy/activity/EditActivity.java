@@ -1,8 +1,13 @@
 package com.fx.soy.activity;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -18,6 +23,10 @@ import android.widget.Toast;
 import com.fx.soy.R;
 import com.fx.soy.entity.Soy;
 import com.fx.soy.helper.DBHelper;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class EditActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,6 +63,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     private Button mCollectTime;
 
     private Button mSubmit;
+
+    private Button mPhoto;
 
     private Soy mSoy;
 
@@ -102,6 +113,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         mCollectTime = (Button) findViewById(R.id.btn_collect_time_edit);
 
         mSubmit = (Button) findViewById(R.id.btn_submit_edit);
+
+        mPhoto = (Button) findViewById(R.id.btn_photo_edit);
     }
 
     private void initData() {
@@ -161,6 +174,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         mCollectTime.setOnClickListener(this);
 
         mSubmit.setOnClickListener(this);
+
+        mPhoto.setOnClickListener(this);
     }
 
     @Override
@@ -490,6 +505,38 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("newSoy", soyForUpdate);
                 setResult(RESULT_OK, intent);
                 finish();
+                break;
+            case R.id.btn_photo_edit:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+                }
+                String generation = String.valueOf(mGeneration.getText()).trim();
+                String line = String.valueOf(mLine.getText()).trim();
+                String name = String.valueOf(mName.getText()).trim();
+                if ("".equals(generation)) {
+                    Toast.makeText(this, "代不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(line)) {
+                    Toast.makeText(this, "行不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(name)) {
+                    Toast.makeText(this, "资源号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String dir = Environment.getExternalStorageDirectory().getPath() + "/Android/data/com.fx.save/images/";
+                File file = new File(dir);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+                String filename = generation + "代" + line + "行" + name + " " + datetime;
+                String mFilePath = this.getExternalFilesDir("images").getPath() + "/" + filename + ".png";
+                Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Uri mUri = Uri.fromFile(new File(mFilePath));
+                openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
+                startActivity(openCameraIntent);
                 break;
             default:
                 break;

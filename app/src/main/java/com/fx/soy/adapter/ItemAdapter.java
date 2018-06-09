@@ -47,7 +47,8 @@ public class ItemAdapter extends ArrayAdapter<Soy> {
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
             viewHolder = new ViewHolder();
-            viewHolder.date = (TextView) view.findViewById(R.id.show_date);
+            viewHolder.generation = (TextView) view.findViewById(R.id.show_generation);
+            viewHolder.line = (TextView) view.findViewById(R.id.show_line);
             viewHolder.name = (TextView) view.findViewById(R.id.show_name);
             viewHolder.delete = (Button) view.findViewById(R.id.bt_delete);
             view.setTag(viewHolder);
@@ -55,8 +56,10 @@ public class ItemAdapter extends ArrayAdapter<Soy> {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.date.setText(soy.getCollectDate() + " " + soy.getCollectTime());
-        viewHolder.name.setText(soy.getCollectName());
+        assert soy != null;
+        viewHolder.generation.setText(soy.getGeneration());
+        viewHolder.line.setText(soy.getLine());
+        viewHolder.name.setText(soy.getName());
         viewHolder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +81,8 @@ public class ItemAdapter extends ArrayAdapter<Soy> {
     }
 
     class ViewHolder {
-        TextView date;
+        TextView generation;
+        TextView line;
         TextView name;
         Button delete;
     }

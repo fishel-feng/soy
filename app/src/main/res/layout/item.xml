@@ -6,10 +6,18 @@
               android:gravity="center">
 
     <TextView
-        android:id="@+id/show_date"
+        android:id="@+id/show_generation"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_weight="3"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/show_line"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:textSize="15sp"/>
 
@@ -17,7 +25,7 @@
         android:id="@+id/show_name"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:gravity="center"
         android:textSize="15sp"/>
 

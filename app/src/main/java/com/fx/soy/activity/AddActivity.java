@@ -1,8 +1,13 @@
 package com.fx.soy.activity;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -19,7 +24,10 @@ import com.fx.soy.R;
 import com.fx.soy.entity.Soy;
 import com.fx.soy.helper.DBHelper;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class AddActivity extends AppCompatActivity implements View.OnClickListener {
@@ -58,6 +66,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
     private Button mDefault;
     private Button mSubmit;
+
+    private Button mPhoto;
 
     private ArrayList<Soy> mSoyList = new ArrayList<>();
 
@@ -107,6 +117,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
         mDefault = (Button) findViewById(R.id.btn_default);
         mSubmit = (Button) findViewById(R.id.btn_submit);
+
+        mPhoto = (Button) findViewById(R.id.btn_photo);
     }
 
     private void initData() {
@@ -184,6 +196,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
         mDefault.setOnClickListener(this);
         mSubmit.setOnClickListener(this);
+
+        mPhoto.setOnClickListener(this);
     }
 
     @Override
@@ -331,6 +345,38 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.btn_default:
                 startActivityForResult(new Intent(this, DefaultValueActivity.class), 0);
+                break;
+            case R.id.btn_photo:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+                }
+                String generation = String.valueOf(mGeneration.getText()).trim();
+                String line = String.valueOf(mLine.getText()).trim();
+                String name = String.valueOf(mName.getText()).trim();
+                if ("".equals(generation)) {
+                    Toast.makeText(this, "代不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(line)) {
+                    Toast.makeText(this, "行不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ("".equals(name)) {
+                    Toast.makeText(this, "资源号不能为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+                String filename = generation + "代" + line + "行" + name + " " + datetime;
+                String mFilePath = this.getExternalFilesDir("images").getPath() + "/" + filename + ".png";
+                Uri mUri;
+                if (Build.VERSION.SDK_INT >= 24) {
+                    mUri = FileProvider.getUriForFile(this, "com.fx.images", new File(mFilePath));
+                } else {
+                    mUri = Uri.fromFile(new File(mFilePath));
+                }
+                Intent openCameraIntent = new Intent("android.media.action.IMAGE_CAPTURE");
+                openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
+                startActivity(openCameraIntent);
                 break;
             default:
                 break;

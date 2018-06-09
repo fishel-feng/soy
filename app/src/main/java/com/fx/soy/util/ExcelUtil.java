@@ -30,8 +30,7 @@ import jxl.write.WriteException;
 public class ExcelUtil {
 
     //内存地址
-    public static String root = Environment.getExternalStorageDirectory()
-            .getPath();
+    public static String root = Environment.getExternalStorageDirectory().getPath();
 
     public static void writeExcel(Context context, List<Soy> soyList,
                                   String fileName) throws Exception {
@@ -41,7 +40,7 @@ public class ExcelUtil {
         }
         String[] title = {"代", "行", "资源号", "播种期", "出苗期", "出苗率", "花色", "叶形", "茸毛色", "夹皮色", "结荚习性", "株高", "底荚高", "主茎节数", "有效分支", "单株有效荚数", "倒伏日期", "倒伏程度", "倒伏率", "细菌性斑点病", "霜霉病", "灰斑病", "菌核病", "病毒", "线虫病", "缺区长度", "垄距", "采集地块", "采集人姓名", "采集日期", "采集时间"};
         File file;
-        File dir = new File(context.getExternalFilesDir(null).getPath());
+        File dir = new File(context.getExternalFilesDir("tables").getPath());
         String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         file = new File(dir, fileName + datetime + ".xls");
         if (!dir.exists()) {
