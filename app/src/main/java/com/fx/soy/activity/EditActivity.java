@@ -30,6 +30,7 @@ import java.util.Date;
 
 public class EditActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText mPlace;
     private EditText mGeneration;
     private EditText mLine;
     private EditText mName;
@@ -80,6 +81,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
+        mPlace = (EditText) findViewById(R.id.et_place_edit);
         mGeneration = (EditText) findViewById(R.id.et_generation_edit);
         mLine = (EditText) findViewById(R.id.et_line_edit);
         mName = (EditText) findViewById(R.id.et_name_edit);
@@ -120,6 +122,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     private void initData() {
         Intent intent = getIntent();
         mSoy = intent.getParcelableExtra("mSoy");
+        mPlace.setText(mSoy.getPlace());
         mGeneration.setText(mSoy.getGeneration());
         mLine.setText(mSoy.getLine());
         mName.setText(mSoy.getName());
@@ -451,6 +454,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_submit_edit:
                 soyForUpdate = new Soy();
+                soyForUpdate.setPlace(String.valueOf(mPlace.getText()));
                 soyForUpdate.setGeneration(String.valueOf(mGeneration.getText()));
                 soyForUpdate.setLine(String.valueOf(mLine.getText()));
                 soyForUpdate.setName(String.valueOf(mName.getText()));

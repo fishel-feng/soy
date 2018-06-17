@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="设置默认值"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </android.support.v7.widget.Toolbar>
 
@@ -33,15 +33,35 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="地点"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_place_default"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
                 android:text="代"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_generation_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -55,14 +75,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="播种期"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_seed_date_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
 
         </LinearLayout>
 
@@ -77,14 +97,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="出苗期"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_emerge_date_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
 
         </LinearLayout>
 
@@ -99,14 +119,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="出苗率"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_emerge_rate_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/emergeRate"/>
+                android:entries="@array/emergeRate" />
         </LinearLayout>
 
         <LinearLayout
@@ -121,14 +141,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="花色"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_flower_color_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/flowerColor"/>
+                android:entries="@array/flowerColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -142,14 +162,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="叶形"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_leaf_shape_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/leafShape"/>
+                android:entries="@array/leafShape" />
         </LinearLayout>
 
         <LinearLayout
@@ -163,14 +183,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="茸毛色"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_hair_color_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/hairColor"/>
+                android:entries="@array/hairColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -184,14 +204,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="夹皮色"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_hulls_color_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/hullsColor"/>
+                android:entries="@array/hullsColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -205,14 +225,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="结荚习性"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/sp_pod_habit_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:entries="@array/podHabit"/>
+                android:entries="@array/podHabit" />
         </LinearLayout>
 
         <LinearLayout
@@ -226,14 +246,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="垄距"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_ridge_distance_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:inputType="number|numberDecimal"/>
+                android:inputType="number|numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -247,13 +267,13 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集地块"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_collect_area_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"/>
+                android:layout_weight="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -267,13 +287,13 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集人姓名"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_collect_name_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"/>
+                android:layout_weight="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -287,14 +307,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集日期"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_collect_date_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
         </LinearLayout>
 
         <LinearLayout
@@ -308,14 +328,14 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="采集时间"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_collect_time_default"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="未选择"/>
+                android:text="未选择" />
         </LinearLayout>
 
         <Button
@@ -324,7 +344,7 @@
             android:layout_height="50dp"
             android:layout_marginEnd="50dp"
             android:layout_marginStart="50dp"
-            android:text="确定"/>
+            android:text="确定" />
     </LinearLayout>
 
 </ScrollView>

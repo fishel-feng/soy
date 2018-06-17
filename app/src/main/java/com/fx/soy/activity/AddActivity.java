@@ -29,9 +29,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class AddActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText mPlace;
     private EditText mGeneration;
     private EditText mLine;
     private EditText mName;
@@ -83,6 +83,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     private void initView() {
+        mPlace = (EditText) findViewById(R.id.et_place);
         mGeneration = (EditText) findViewById(R.id.et_generation);
         mLine = (EditText) findViewById(R.id.et_line);
         mName = (EditText) findViewById(R.id.et_name);
@@ -122,6 +123,11 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     private void initData() {
+        if (mHolder.mPlace != null) {
+            mPlace.setText(mHolder.mPlace.trim());
+        } else {
+            mPlace.setText("");
+        }
         if (mHolder.mGeneration != null) {
             mGeneration.setText(mHolder.mGeneration.trim());
         } else {
@@ -291,6 +297,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.btn_submit:
                 Soy mSoy = new Soy();
+                mSoy.setPlace(String.valueOf(mPlace.getText()));
                 mSoy.setGeneration(String.valueOf(mGeneration.getText()));
                 mSoy.setLine(String.valueOf(mLine.getText()));
                 mSoy.setName(String.valueOf(mName.getText()));
@@ -387,6 +394,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
+                mHolder.mPlace = data.getStringExtra("place");
                 mHolder.mGeneration = data.getStringExtra("generation");
                 mHolder.mSeedDate = data.getStringExtra("seedDate");
                 mHolder.mEmergeDate = data.getStringExtra("emergeDate");
@@ -401,6 +409,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 mHolder.mCollectName = data.getStringExtra("collectName");
                 mHolder.mCollectDate = data.getStringExtra("collectDate");
                 mHolder.mCollectTime = data.getStringExtra("collectTime");
+                mPlace.setText(mHolder.mPlace);
                 mGeneration.setText(mHolder.mGeneration);
                 mSeedDate.setText(mHolder.mSeedDate);
                 mEmergeDate.setText(mHolder.mEmergeDate);
@@ -432,6 +441,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     class DefaultHolder {
+        String mPlace;
         String mGeneration;
         String mSeedDate;
         String mEmergeDate;

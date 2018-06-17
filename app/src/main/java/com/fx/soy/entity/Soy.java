@@ -13,6 +13,8 @@ public class Soy extends DataSupport implements Parcelable {
 
     private Long id;
 
+    private String place;
+
     // 代
     private String generation;
 
@@ -109,8 +111,9 @@ public class Soy extends DataSupport implements Parcelable {
     public Soy() {
     }
 
-    public Soy(Long id, String generation, String line, String name, String seedDate, String emergeDate, String emergeRate, String flowerColor, String leafShape, String hairColor, String hullsColor, String podHabit, String plantHeight, String podHeight, String stemNumber, String effectiveBranch, String effectivePodNumberOfOne, String lodgingDate, String lodgingDegree, String lodgingRate, String bacterialSpotDiseases, String downyMildew, String grayLeafSpot, String sclerotiniaSclerotiorum, String viruses, String nematodeDisease, String areaLength, String ridgeDistance, String collectArea, String collectName, String collectDate, String collectTime) {
+    public Soy(Long id, String place, String generation, String line, String name, String seedDate, String emergeDate, String emergeRate, String flowerColor, String leafShape, String hairColor, String hullsColor, String podHabit, String plantHeight, String podHeight, String stemNumber, String effectiveBranch, String effectivePodNumberOfOne, String lodgingDate, String lodgingDegree, String lodgingRate, String bacterialSpotDiseases, String downyMildew, String grayLeafSpot, String sclerotiniaSclerotiorum, String viruses, String nematodeDisease, String areaLength, String ridgeDistance, String collectArea, String collectName, String collectDate, String collectTime) {
         this.id = id;
+        this.place = place;
         this.generation = generation;
         this.line = line;
         this.name = name;
@@ -146,6 +149,7 @@ public class Soy extends DataSupport implements Parcelable {
 
     protected Soy(Parcel in) {
         id=in.readLong();
+        place = in.readString();
         generation = in.readString();
         line = in.readString();
         name = in.readString();
@@ -197,6 +201,14 @@ public class Soy extends DataSupport implements Parcelable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public String getGeneration() {
@@ -459,6 +471,7 @@ public class Soy extends DataSupport implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
+        dest.writeString(place);
         dest.writeString(generation);
         dest.writeString(line);
         dest.writeString(name);

@@ -17,6 +17,7 @@ import com.fx.soy.R;
 
 public class DefaultValueActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText mPlace;
     private EditText mGeneration;
     private Button mSeedDate;
     private Button mEmergeDate;
@@ -44,6 +45,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initView() {
+        mPlace = (EditText) findViewById(R.id.et_place_default);
         mGeneration = (EditText) findViewById(R.id.et_generation_default);
         mSeedDate = (Button) findViewById(R.id.btn_seed_date_default);
         mEmergeDate = (Button) findViewById(R.id.btn_emerge_date_default);
@@ -63,6 +65,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initData() {
+        mPlace.setText("");
         mGeneration.setText("");
         mSeedDate.setText("未选择");
         mEmergeDate.setText("未选择");
@@ -161,6 +164,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
                 builder4.create().show();
                 break;
             case R.id.btn_submit_default:
+                String place = String.valueOf(mPlace.getText());
                 String generation = String.valueOf(mGeneration.getText());
                 String seedDate= String.valueOf(mSeedDate.getText());
                 String emergeDate= String.valueOf(mEmergeDate.getText());
@@ -176,6 +180,7 @@ public class DefaultValueActivity extends AppCompatActivity implements View.OnCl
                 String collectDate= String.valueOf(mCollectDate.getText());
                 String collectTime= (String) mCollectTime.getText();
                 Intent intent=new Intent();
+                intent.putExtra("place", place);
                 intent.putExtra("generation", generation);
                 intent.putExtra("seedDate",seedDate);
                 intent.putExtra("emergeDate",emergeDate);

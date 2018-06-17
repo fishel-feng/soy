@@ -16,7 +16,7 @@ public class DBHelper {
     }
 
     public static List<Soy> queryAll() {
-        List<Soy> soyList = DataSupport.select("id", "generation", "line", "name", "seedDate", "emergeDate", "emergeRate", "flowerColor", "leafShape", "hairColor", "hullsColor", "podHabit", "plantHeight", "podHeight", "stemNumber", "effectiveBranch", "effectivePodNumberOfOne", "lodgingDate", "lodgingDegree", "lodgingRate", "bacterialSpotDiseases", "downyMildew", "grayLeafSpot", "sclerotiniaSclerotiorum", "viruses", "nematodeDisease", "areaLength", "ridgeDistance", "collectArea", "collectName", "collectDate", "collectTime")
+        List<Soy> soyList = DataSupport.select("id", "place","generation", "line", "name", "seedDate", "emergeDate", "emergeRate", "flowerColor", "leafShape", "hairColor", "hullsColor", "podHabit", "plantHeight", "podHeight", "stemNumber", "effectiveBranch", "effectivePodNumberOfOne", "lodgingDate", "lodgingDegree", "lodgingRate", "bacterialSpotDiseases", "downyMildew", "grayLeafSpot", "sclerotiniaSclerotiorum", "viruses", "nematodeDisease", "areaLength", "ridgeDistance", "collectArea", "collectName", "collectDate", "collectTime")
                 .order("id")
                 .find(Soy.class);
         return soyList;
