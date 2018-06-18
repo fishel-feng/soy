@@ -16,7 +16,17 @@ public class DBHelper {
     }
 
     public static List<Soy> queryAll() {
-        List<Soy> soyList = DataSupport.select("id", "place","generation", "line", "name", "seedDate", "emergeDate", "emergeRate", "flowerColor", "leafShape", "hairColor", "hullsColor", "podHabit", "plantHeight", "podHeight", "stemNumber", "effectiveBranch", "effectivePodNumberOfOne", "lodgingDate", "lodgingDegree", "lodgingRate", "bacterialSpotDiseases", "downyMildew", "grayLeafSpot", "sclerotiniaSclerotiorum", "viruses", "nematodeDisease", "areaLength", "ridgeDistance", "collectArea", "collectName", "collectDate", "collectTime")
+        List<Soy> soyList = DataSupport.select("id", "place", "generation", "line",
+                "strain", "maleParent", "femaleParent", "name", "seedDate", "branchDate", "floweringDate",
+                "poddingDate", "matureDate", "emergeDate", "emergeRate", "flowerColor", "leafColor", "leafShape",
+                "hairColor", "hullsColor", "podHabit", "hundredGrainWeight", "plantHeight", "podHeight", "stemNumber",
+                "effectiveBranch", "effectivePodNumberOfOne", "lodgingDate", "lodgingDegree",
+                "lodgingRate", "bacterialSpotDiseases", "bacterialSpotDiseasesDate", "downyMildew", "downyMildewDate",
+                "grayLeafSpot", "grayLeafSpotDate", "sclerotiniaSclerotiorum", "sclerotiniaSclerotiorumDate",
+                "viruses", "virusesDate", "nematodeDisease", "nematodeDiseaseDate", "aphidResistance",
+                "esophagealResistance", "onePodNumber", "twoPodNumber", "threePodNumber", "fourPodNumber",
+                "totalPodNumber", "areaLength", "ridgeDistance", "collectArea", "collectName",
+                "collectDate", "collectTime", "evaluate", "remark")
                 .order("id")
                 .find(Soy.class);
         return soyList;

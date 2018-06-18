@@ -10,6 +10,8 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -29,20 +32,29 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class AddActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher {
 
     private EditText mPlace;
     private EditText mGeneration;
     private EditText mLine;
+    private EditText mStrain;
+    private EditText mMaleParent;
+    private EditText mFemaleParent;
     private EditText mName;
     private Button mSeedDate;
+    private Button mBranchDate;
+    private Button mFloweringDate;
+    private Button mPoddingDate;
+    private Button mMatureDate;
     private Button mEmergeDate;
     private Spinner mEmergeRate;
     private Spinner mFlowerColor;
+    private Spinner mLeafColor;
     private Spinner mLeafShape;
     private Spinner mHairColor;
     private Spinner mHullsColor;
     private Spinner mPodHabit;
+    private Spinner mHundredGrainWeight;
     private EditText mPlantHeight;
     private EditText mPodHeight;
     private EditText mStemNumber;
@@ -52,18 +64,32 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     private Spinner mLodgingDegree;
     private EditText mLodgingRate;
     private Spinner mBacterialSpotDiseases;
+    private Button mBacterialSpotDiseasesDate;
     private Spinner mDownyMildew;
+    private Button mDownyMildewDate;
     private Spinner mGrayLeafSpot;
+    private Button mGrayLeafSpotDate;
     private Spinner mSclerotiniaSclerotiorum;
+    private Button mSclerotiniaSclerotiorumDate;
     private Spinner mViruses;
+    private Button mVirusesDate;
     private Spinner mNematodeDisease;
+    private Button mNematodeDiseaseDate;
+    private Spinner mAphidResistance;
+    private Spinner mEsophagealResistance;
+    private EditText mOnePodNumber;
+    private EditText mTwoPodNumber;
+    private EditText mThreePodNumber;
+    private EditText mFourPodNumber;
+    private TextView mTotalPodNumber;
     private EditText mAreaLength;
     private EditText mRidgeDistance;
     private EditText mCollectArea;
     private EditText mCollectName;
     private Button mCollectDate;
     private Button mCollectTime;
-
+    private EditText mEvaluate;
+    private EditText mRemark;
     private Button mDefault;
     private Button mSubmit;
 
@@ -86,15 +112,24 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         mPlace = (EditText) findViewById(R.id.et_place);
         mGeneration = (EditText) findViewById(R.id.et_generation);
         mLine = (EditText) findViewById(R.id.et_line);
+        mStrain = (EditText) findViewById(R.id.et_strain);
+        mMaleParent = (EditText) findViewById(R.id.et_male_parent);
+        mFemaleParent = (EditText) findViewById(R.id.et_female_parent);
         mName = (EditText) findViewById(R.id.et_name);
         mSeedDate = (Button) findViewById(R.id.btn_seed_date);
+        mBranchDate = (Button) findViewById(R.id.btn_branch_date);
+        mFloweringDate = (Button) findViewById(R.id.btn_flowering_date);
+        mPoddingDate = (Button) findViewById(R.id.btn_podding_date);
+        mMatureDate = (Button) findViewById(R.id.btn_mature_date);
         mEmergeDate = (Button) findViewById(R.id.btn_emerge_date);
         mEmergeRate = (Spinner) findViewById(R.id.sp_emerge_rate);
         mFlowerColor = (Spinner) findViewById(R.id.sp_flower_color);
+        mLeafColor = (Spinner) findViewById(R.id.sp_leaf_color);
         mLeafShape = (Spinner) findViewById(R.id.sp_leaf_shape);
         mHairColor = (Spinner) findViewById(R.id.sp_hair_color);
         mHullsColor = (Spinner) findViewById(R.id.sp_hulls_color);
         mPodHabit = (Spinner) findViewById(R.id.sp_pod_habit);
+        mHundredGrainWeight = (Spinner) findViewById(R.id.sp_hundred_grain_weight);
         mPlantHeight = (EditText) findViewById(R.id.et_plant_height);
         mPodHeight = (EditText) findViewById(R.id.et_pod_height);
         mStemNumber = (EditText) findViewById(R.id.et_stem_number);
@@ -104,17 +139,32 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         mLodgingDegree = (Spinner) findViewById(R.id.sp_lodging_degree);
         mLodgingRate = (EditText) findViewById(R.id.et_lodging_rate);
         mBacterialSpotDiseases = (Spinner) findViewById(R.id.sp_bacterial_spot_diseases);
+        mBacterialSpotDiseasesDate = (Button) findViewById(R.id.btn_bacterial_spot_diseases_date);
         mDownyMildew = (Spinner) findViewById(R.id.sp_downy_mildew);
+        mDownyMildewDate = (Button) findViewById(R.id.btn_downy_mildew_date);
         mGrayLeafSpot = (Spinner) findViewById(R.id.sp_gray_leaf_spot);
+        mGrayLeafSpotDate = (Button) findViewById(R.id.btn_gray_leaf_spot_date);
         mSclerotiniaSclerotiorum = (Spinner) findViewById(R.id.sp_sclerotinia_sclerotiorum);
+        mSclerotiniaSclerotiorumDate = (Button) findViewById(R.id.btn_sclerotinia_sclerotiorum_date);
         mViruses = (Spinner) findViewById(R.id.sp_viruses);
+        mVirusesDate = (Button) findViewById(R.id.btn_viruses_date);
         mNematodeDisease = (Spinner) findViewById(R.id.sp_nematode_disease);
+        mNematodeDiseaseDate = (Button) findViewById(R.id.btn_nematode_disease_date);
+        mAphidResistance = (Spinner) findViewById(R.id.sp_aphid_resistance);
+        mEsophagealResistance = (Spinner) findViewById(R.id.sp_esophageal_resistance);
+        mOnePodNumber = (EditText) findViewById(R.id.et_one_pod_number);
+        mTwoPodNumber = (EditText) findViewById(R.id.et_two_pod_number);
+        mThreePodNumber = (EditText) findViewById(R.id.et_three_pod_number);
+        mFourPodNumber = (EditText) findViewById(R.id.et_four_pod_number);
+        mTotalPodNumber = (TextView) findViewById(R.id.tv_total_pod_number);
         mAreaLength = (EditText) findViewById(R.id.et_area_length);
         mRidgeDistance = (EditText) findViewById(R.id.et_ridge_distance);
         mCollectArea = (EditText) findViewById(R.id.et_collect_area);
         mCollectName = (EditText) findViewById(R.id.et_collect_name);
         mCollectDate = (Button) findViewById(R.id.btn_collect_date);
         mCollectTime = (Button) findViewById(R.id.btn_collect_time);
+        mEvaluate = (EditText) findViewById(R.id.et_evaluate);
+        mRemark = (EditText) findViewById(R.id.et_remark);
 
         mDefault = (Button) findViewById(R.id.btn_default);
         mSubmit = (Button) findViewById(R.id.btn_submit);
@@ -145,6 +195,30 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         } else {
             mEmergeDate.setText("未选择");
         }
+        mStrain.setText("");
+//        mMaleParent.setText("");
+//        mFemaleParent.setText("");
+        mBranchDate.setText("");
+        mFloweringDate.setText("");
+        mPoddingDate.setText("");
+        mMatureDate.setText("");
+        mLeafColor.setSelection(0);
+        mHundredGrainWeight.setSelection(0);
+        mBacterialSpotDiseasesDate.setText("");
+        mDownyMildewDate.setText("");
+        mGrayLeafSpotDate.setText("");
+        mSclerotiniaSclerotiorumDate.setText("");
+        mVirusesDate.setText("");
+        mNematodeDiseaseDate.setText("");
+        mAphidResistance.setSelection(0);
+        mEsophagealResistance.setSelection(0);
+        mOnePodNumber.setText("");
+        mTwoPodNumber.setText("");
+        mThreePodNumber.setText("");
+        mFourPodNumber.setText("");
+        mTotalPodNumber.setText("0");
+        mEvaluate.setText("");
+        mRemark.setText("");
         mEmergeRate.setSelection(mHolder.mEmergeRate);
         mFlowerColor.setSelection(mHolder.mFlowerColor);
         mLeafShape.setSelection(mHolder.mLeafShape);
@@ -195,10 +269,25 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
     private void initEvents() {
         mSeedDate.setOnClickListener(this);
+        mBranchDate.setOnClickListener(this);
+        mFloweringDate.setOnClickListener(this);
+        mPoddingDate.setOnClickListener(this);
+        mMatureDate.setOnClickListener(this);
         mEmergeDate.setOnClickListener(this);
         mLodgingDate.setOnClickListener(this);
+        mBacterialSpotDiseasesDate.setOnClickListener(this);
+        mDownyMildewDate.setOnClickListener(this);
+        mGrayLeafSpotDate.setOnClickListener(this);
+        mSclerotiniaSclerotiorumDate.setOnClickListener(this);
+        mVirusesDate.setOnClickListener(this);
+        mNematodeDiseaseDate.setOnClickListener(this);
         mCollectDate.setOnClickListener(this);
         mCollectTime.setOnClickListener(this);
+
+        mOnePodNumber.addTextChangedListener(this);
+        mTwoPodNumber.addTextChangedListener(this);
+        mThreePodNumber.addTextChangedListener(this);
+        mFourPodNumber.addTextChangedListener(this);
 
         mDefault.setOnClickListener(this);
         mSubmit.setOnClickListener(this);
@@ -210,72 +299,46 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_seed_date:
-                AlertDialog.Builder builder = new AlertDialog.Builder(AddActivity.this);
-                LayoutInflater inflater = LayoutInflater.from(AddActivity.this);
-                View viewDialog = inflater.inflate(R.layout.date, null);
-                final DatePicker datePicker = (DatePicker) viewDialog.findViewById(R.id.datePicker);
-                builder.setView(viewDialog);
-                builder.setTitle("选择播种日期");
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String date = datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth();
-                        mSeedDate.setText(date);
-                    }
-                });
-                builder.setNegativeButton("取消", null);
-                builder.create().show();
+                showAlert("选择播种日期", mSeedDate);
+                break;
+            case R.id.btn_branch_date:
+                showAlert("选择分枝日期", mBranchDate);
+                break;
+            case R.id.btn_flowering_date:
+                showAlert("选择开花日期", mFloweringDate);
+                break;
+            case R.id.btn_podding_date:
+                showAlert("选择结荚日期", mPoddingDate);
+                break;
+            case R.id.btn_mature_date:
+                showAlert("选择成熟日期", mMatureDate);
                 break;
             case R.id.btn_emerge_date:
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(AddActivity.this);
-                LayoutInflater inflater1 = LayoutInflater.from(AddActivity.this);
-                View viewDialog1 = inflater1.inflate(R.layout.date, null);
-                final DatePicker datePicker1 = (DatePicker) viewDialog1.findViewById(R.id.datePicker);
-                builder1.setView(viewDialog1);
-                builder1.setTitle("选择出苗日期");
-                builder1.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String date = datePicker1.getYear() + "-" + (datePicker1.getMonth() + 1) + "-" + datePicker1.getDayOfMonth();
-                        mEmergeDate.setText(date);
-                    }
-                });
-                builder1.setNegativeButton("取消", null);
-                builder1.create().show();
+                showAlert("选择出苗日期", mEmergeDate);
                 break;
             case R.id.btn_lodging_date:
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(AddActivity.this);
-                LayoutInflater inflater2 = LayoutInflater.from(AddActivity.this);
-                View viewDialog2 = inflater2.inflate(R.layout.date, null);
-                final DatePicker datePicker2 = (DatePicker) viewDialog2.findViewById(R.id.datePicker);
-                builder2.setView(viewDialog2);
-                builder2.setTitle("选择倒伏日期");
-                builder2.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String date = datePicker2.getYear() + "-" + (datePicker2.getMonth() + 1) + "-" + datePicker2.getDayOfMonth();
-                        mLodgingDate.setText(date);
-                    }
-                });
-                builder2.setNegativeButton("取消", null);
-                builder2.create().show();
+                showAlert("选择倒伏日期", mLodgingDate);
+                break;
+            case R.id.btn_bacterial_spot_diseases_date:
+                showAlert("细菌性斑点病发病日期", mBacterialSpotDiseasesDate);
+                break;
+            case R.id.btn_downy_mildew_date:
+                showAlert("霜霉病发病日期", mDownyMildewDate);
+                break;
+            case R.id.btn_gray_leaf_spot_date:
+                showAlert("灰斑病发病日期", mGrayLeafSpotDate);
+                break;
+            case R.id.btn_sclerotinia_sclerotiorum_date:
+                showAlert("菌核病发病日期", mSclerotiniaSclerotiorumDate);
+                break;
+            case R.id.btn_viruses_date:
+                showAlert("病毒发病日期", mVirusesDate);
+                break;
+            case R.id.btn_nematode_disease_date:
+                showAlert("线虫病发病日期", mNematodeDiseaseDate);
                 break;
             case R.id.btn_collect_date:
-                AlertDialog.Builder builder3 = new AlertDialog.Builder(AddActivity.this);
-                LayoutInflater inflater3 = LayoutInflater.from(AddActivity.this);
-                View viewDialog3 = inflater3.inflate(R.layout.date, null);
-                final DatePicker datePicker3 = (DatePicker) viewDialog3.findViewById(R.id.datePicker);
-                builder3.setView(viewDialog3);
-                builder3.setTitle("选择采集日期");
-                builder3.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String date = datePicker3.getYear() + "-" + (datePicker3.getMonth() + 1) + "-" + datePicker3.getDayOfMonth();
-                        mCollectDate.setText(date);
-                    }
-                });
-                builder3.setNegativeButton("取消", null);
-                builder3.create().show();
+                showAlert("选择采集日期", mCollectDate);
                 break;
             case R.id.btn_collect_time:
                 AlertDialog.Builder builder4 = new AlertDialog.Builder(AddActivity.this);
@@ -300,15 +363,24 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 mSoy.setPlace(String.valueOf(mPlace.getText()));
                 mSoy.setGeneration(String.valueOf(mGeneration.getText()));
                 mSoy.setLine(String.valueOf(mLine.getText()));
+                mSoy.setStrain(String.valueOf(mStrain.getText()));
+                mSoy.setMaleParent(String.valueOf(mMaleParent.getText()));
+                mSoy.setFemaleParent(String.valueOf(mFemaleParent.getText()));
                 mSoy.setName(String.valueOf(mName.getText()));
                 mSoy.setSeedDate(String.valueOf(mSeedDate.getText()));
+                mSoy.setBranchDate(String.valueOf(mBranchDate.getText()));
+                mSoy.setFloweringDate(String.valueOf(mFloweringDate.getText()));
+                mSoy.setPoddingDate(String.valueOf(mPoddingDate.getText()));
+                mSoy.setMatureDate(String.valueOf(mMatureDate.getText()));
                 mSoy.setEmergeDate(String.valueOf(mEmergeDate.getText()));
                 mSoy.setEmergeRate(String.valueOf(mEmergeRate.getSelectedItem()));
                 mSoy.setFlowerColor(String.valueOf(mLeafShape.getSelectedItem()));
+                mSoy.setLeafColor(String.valueOf(mLeafColor.getSelectedItem()));
                 mSoy.setLeafShape(String.valueOf(mLeafShape.getSelectedItem()));
                 mSoy.setHairColor(String.valueOf(mHairColor.getSelectedItem()));
                 mSoy.setHullsColor(String.valueOf(mHullsColor.getSelectedItem()));
                 mSoy.setPodHabit(String.valueOf(mPodHabit.getSelectedItem()));
+                mSoy.setHundredGrainWeight(String.valueOf(mHundredGrainWeight.getSelectedItem()));
                 mSoy.setPlantHeight(String.valueOf(mPlantHeight.getText()));
                 mSoy.setPodHeight(String.valueOf(mPodHeight.getText()));
                 mSoy.setStemNumber(String.valueOf(mStemNumber.getText()));
@@ -318,17 +390,32 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 mSoy.setLodgingDegree(String.valueOf(mLodgingDegree.getSelectedItem()));
                 mSoy.setLodgingRate(String.valueOf(mLodgingRate.getText()));
                 mSoy.setBacterialSpotDiseases(String.valueOf(mBacterialSpotDiseases.getSelectedItem()));
+                mSoy.setBacterialSpotDiseasesDate(String.valueOf(mBacterialSpotDiseasesDate.getText()));
                 mSoy.setDownyMildew(String.valueOf(mDownyMildew.getSelectedItem()));
+                mSoy.setDownyMildewDate(String.valueOf(mDownyMildewDate.getText()));
                 mSoy.setGrayLeafSpot(String.valueOf(mGrayLeafSpot.getSelectedItem()));
+                mSoy.setGrayLeafSpotDate(String.valueOf(mGrayLeafSpotDate.getText()));
                 mSoy.setSclerotiniaSclerotiorum(String.valueOf(mSclerotiniaSclerotiorum.getSelectedItem()));
+                mSoy.setSclerotiniaSclerotiorumDate(String.valueOf(mSclerotiniaSclerotiorumDate.getText()));
                 mSoy.setViruses(String.valueOf(mViruses.getSelectedItem()));
+                mSoy.setVirusesDate(String.valueOf(mVirusesDate.getText()));
                 mSoy.setNematodeDisease(String.valueOf(mNematodeDisease.getSelectedItem()));
+                mSoy.setNematodeDiseaseDate(String.valueOf(mNematodeDiseaseDate.getText()));
+                mSoy.setAphidResistance(String.valueOf(mAphidResistance.getSelectedItem()));
+                mSoy.setEsophagealResistance(String.valueOf(mEsophagealResistance.getSelectedItem()));
+                mSoy.setOnePodNumber(String.valueOf(mOnePodNumber.getText()));
+                mSoy.setTwoPodNumber(String.valueOf(mTwoPodNumber.getText()));
+                mSoy.setThreePodNumber(String.valueOf(mThreePodNumber.getText()));
+                mSoy.setFourPodNumber(String.valueOf(mFourPodNumber.getText()));
+                mSoy.setTotalPodNumber(String.valueOf(mTotalPodNumber.getText()));
                 mSoy.setAreaLength(String.valueOf(mAreaLength.getText()));
                 mSoy.setRidgeDistance(String.valueOf(mRidgeDistance.getText()));
                 mSoy.setCollectArea(String.valueOf(mCollectArea.getText()));
                 mSoy.setCollectName(String.valueOf(mCollectName.getText()));
                 mSoy.setCollectDate(String.valueOf(mCollectDate.getText()));
                 mSoy.setCollectTime(String.valueOf(mCollectTime.getText()));
+                mSoy.setEvaluate(String.valueOf(mEvaluate.getText()));
+                mSoy.setRemark(String.valueOf(mRemark.getText()));
                 if ("".equals(mSoy.getGeneration().trim())) {
                     Toast.makeText(this, "代不能为空", Toast.LENGTH_SHORT).show();
                     return;
@@ -390,6 +477,24 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    private void showAlert(String text, final Button target) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(AddActivity.this);
+        LayoutInflater inflater = LayoutInflater.from(AddActivity.this);
+        View viewDialog = inflater.inflate(R.layout.date, null);
+        final DatePicker datePicker = (DatePicker) viewDialog.findViewById(R.id.datePicker);
+        builder.setView(viewDialog);
+        builder.setTitle(text);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String date = datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth();
+                target.setText(date);
+            }
+        });
+        builder.setNegativeButton("取消", null);
+        builder.create().show();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 0) {
@@ -438,6 +543,22 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        int num = Integer.parseInt(String.valueOf(mTotalPodNumber.getText())) + Integer.parseInt(String.valueOf(editable));
+        mTotalPodNumber.setText(String.valueOf(num));
     }
 
     class DefaultHolder {

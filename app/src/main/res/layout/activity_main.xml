@@ -103,6 +103,67 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="株"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_strain"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="number|numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="父本"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_male_parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="母本"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_female_parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
                 android:text="资源号"
                 android:textSize="20sp" />
 
@@ -128,6 +189,94 @@
 
             <Button
                 android:id="@+id/btn_seed_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="分枝期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_branch_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="开花期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_flowering_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="结荚期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_podding_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="成熟期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_mature_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
@@ -184,7 +333,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -198,6 +346,27 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:entries="@array/flowerColor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="叶色"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_leaf_color"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:entries="@array/leafColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -282,6 +451,27 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:entries="@array/podHabit" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="百粒重"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_hundred_grain_weight"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:entries="@array/hundredGrainWeight" />
         </LinearLayout>
 
         <LinearLayout
@@ -483,6 +673,28 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="发病日期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_bacterial_spot_diseases_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
                 android:text="霜霉病"
                 android:textSize="20sp" />
 
@@ -492,6 +704,28 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:entries="@array/level4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="发病日期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_downy_mildew_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -525,6 +759,28 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="发病日期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_gray_leaf_spot_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
                 android:text="菌核病"
                 android:textSize="20sp" />
 
@@ -534,6 +790,28 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:entries="@array/level5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="发病日期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_sclerotinia_sclerotiorum_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -567,6 +845,28 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="发病日期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_viruses_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
                 android:text="线虫病"
                 android:textSize="20sp" />
 
@@ -576,6 +876,174 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:entries="@array/level6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="发病日期"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_nematode_disease_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="未选择" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="蚜虫抗性"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_aphid_resistance"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:entries="@array/resistance" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="食心虫抗性"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_esophageal_resistance"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:entries="@array/resistance" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="一粒荚数"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_one_pod_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="number|numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="二粒荚数"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_two_pod_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="number|numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="三粒荚数"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_three_pod_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="number|numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="四粒荚数"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_four_pod_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="number|numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="总荚数"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_total_pod_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -700,6 +1168,46 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:text="未选择" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="田间鉴评"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_evaluate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="备注"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_remark"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
         </LinearLayout>
 
         <Button
